@@ -4,7 +4,7 @@
 
 This project demonstrates how to deploy an **AWS EC2 instance** using **Terraform** and configure it using Terraform provisioners.
 
-## 🚀 Project Overview
+##  Project Overview
 
 This Terraform script performs the following:
 
@@ -15,7 +15,7 @@ This Terraform script performs the following:
 
 ---
 
-## 🧰 Requirements
+##  Requirements
 
 Before using this project, ensure you have:
 
@@ -29,7 +29,7 @@ Before using this project, ensure you have:
 
 ---
 
-## 📦 Usage
+##  Usage
 
 ### Initialize Terraform
 
