@@ -31,7 +31,12 @@ Before using this project, ensure you have:
 
 ##  Usage
 
-### Initialize Terraform
+### Output
+![Screenshot_1-12-2025_201644_43 204 116 93](https://github.com/user-attachments/assets/839586d7-89cf-4f29-a8e4-9a7c1d555037)
 
-```bash
-terraform init
+### Terminal
+<img width="1592" height="967" alt="Screenshot 2025-12-01 202245" src="https://github.com/user-attachments/assets/12682755-1d23-464e-b34d-9068c3500a9d" />
+
+
+
+
