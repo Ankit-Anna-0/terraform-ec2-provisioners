@@ -4,13 +4,10 @@ resource "aws_instance" "myec2" {
   key_name               = "terraform-key"
   vpc_security_group_ids = ["sg-00d3599589ff33509"]
 
-  # Runs on your local machine after instance creation
-  # Saves the EC2 private IP into a local file
-  provisioner "local-exec" {
-    command = "echo ${self.private_ip} >> server_ip.txt"
-  }
+  # Make sure instance gets a public IP (important for SSH)
+  associate_public_ip_address = true
 
-  # SSH connection details for remote-exec
+  # SSH connection for remote-exec
   connection {
     type        = "ssh"
     user        = "ec2-user"
@@ -18,12 +15,17 @@ resource "aws_instance" "myec2" {
     host        = self.public_ip
   }
 
-  # Runs commands inside the EC2 instance after SSH connection
-  # Installs and starts nginx
+  # 1) Install and start Nginx on the EC2 instance
   provisioner "remote-exec" {
     inline = [
+      "sudo yum -y update",
       "sudo yum -y install nginx",
-      "sudo systemctl start nginx",
+      "sudo systemctl enable nginx",
+      "sudo systemctl start nginx"
     ]
+  }
+
+  provisioner "local-exec" {
+    command = "echo ${self.public_ip} >> server_ip.txt"
   }
 }
